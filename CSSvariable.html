@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <link rel="stylesheet" href="style.css" />
+    <title>My Heart</title>
+  </head>
+  <body>
+    <canvas id="pinkboard"></canvas>
+    <div class="container">
+      <h1></h1>
+      <!-- Thêm nút điều khiển âm nhạc -->
+      <button id="playPauseButton">Play</button>
+    </div>
+    <audio loop id="autoplay">
+      <source src="music2.mp3" type="audio/mpeg" />
+    </audio>
+    <script src="index.js"></script>
+    <script>
+      const audio = document.getElementById("autoplay");
+      const playPauseButton = document.getElementById("playPauseButton");
+
+      // Hàm để bật/tắt âm nhạc
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+          playPauseButton.textContent = "Pause";
+        } else {
+          audio.pause();
+          playPauseButton.textContent = "Play";
+        }
+      }
+
+      // Gán sự kiện khi nút được nhấn
+      playPauseButton.addEventListener("click", toggleAudio);
+    </script>
+  </body>
+</html>
